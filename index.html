@@ -1,158 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AVANGARDA</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <article class="container"> 
-       <div class="container_bill">
-        <div class="title">
-            <h1>RACHUNEK</h1>
+    <link rel="stylesheet" href="style.css" />
+    <script src="menu.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <article class="container">
+      <div class="bill">
+        <div class="bill__header">
+          <h1 class="bill__title">RACHUNEK</h1>
         </div>
-        <div class="container_bill_sum">
-             <div class = "sum-bill">
-                <h1>Razem </h1>
-                <h1>30 zł</h1>
-            </div>
-        <div class="add-click">
-            <button class = 'button-open-bill'>otwarty rachunek</button>
-            <button class = 'button-close-bill'>Zamkniety rachunek</button></div>
-            
-        </div>  
-       </div>
-        
-        <div class="container_food">
-            <h2>MENU</h2>
-        <div class="container_food_menu">
-                
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">FIKOŁEK</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">SOUR</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption--skew-back">DRINKI</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1><span class="meals-caption">DRINKI BEZALKOCHOLOWE</span>
-                    </h1>
-                    </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">SHOT</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1><span class="meals-caption">AVANGARDA BUCKET</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">ALKOCHOLE BUTELKA</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">WHISKY</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1><span class="meals-caption">RUM</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">GIN</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">TEQUILA</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">KONIAK/LIKIER</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">WINO</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption--skew-back">NAPOJE</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">HERBATA/KAWA</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">JEDZENIE</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">PIWO</span>
-                    </h1>
-                </div>
-                <div class="container_food_menu__meals">
-                    <h1 ><span class="meals-caption">ROZGRZEWAJACE NAPOJE</span>
-                    </h1>
-                </div>
-            <div class="table">
-            <div class="table-title ">
-               <div class= title-table-open >
-                   <h1>RACHUNEK OTWARTY</h1>
-               </div>
-               <div class= title-table-close >
-                <h1>RACHONEK ZAMKNIETY</h1>
-                </div>
-            </div>
-                <div class = "table-bill">
-                <div class= "table_opened">
+        <div class="bill__bill-container">
+          <div class="bill__sum">
+            <h4 class="bill__sum-caption">Razem</h4>
+            <p class="bill__price">30 zł</p>
+          </div>
+          <div class="bill__buttons-area">
+            <button class="bill__button-open-bill">otwarty rachunek</button>
+            <button class="bill__button-close-bill">Zamkniety rachunek</button>
+          </div>
+        </div>
+      </div>
 
-                    <div class="table-number">
-                        <h1>stolik 1</h1>
-                    </div>
-                    <div class="table-number">
-                        <h1>stolik 2</h1>
-                    </div> 
-                    <div class="table-number">
-                        <h1>stolik 3</h1>
-                    </div> 
-                    <div class="table-number">
-                        <h1>stolik 4</h1>
-                    </div>
-                    <div class="table-number">
-                        <h1>stolik 5</h1>
-                    </div>
-                </div>
-                <div class= "table_close">
-                   
-                        <div class="table-number">
-                            <h1>stolik 1</h1>
-                        </div>
-                        <div class="table-number">
-                            <h1>stolik 2</h1>
-                        </div> 
-                        <div class="table-number">
-                            <h1>stolik 3</h1>
-                        </div> 
-                        <div class="table-number">
-                            <h1>stolik 4</h1>
-                        </div>
-                        <div class="table-number">
-                            <h1>stolik 5</h1>
-                        </div>
-                    </div>    
-                </div>
-                
-                </div>
-            </div>
+      <div class="food-container">
+        <header>
+          <h2 class="food-container__header-title">MENU</h2>
+        </header>
+
+        <div class="menu">
+          <div class="menu__meal">
+            <p class="menu__meal-caption">DRINKI</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">DRINKI BEZALKO.</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">SHOT</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">AVANGARDA BUCKET</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">ALKOCHOLE BUTELKA</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">WHISKY</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">RUM</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">GIN</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">TEQUILA</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">
+              KONIAK/ <br />
+              LIKIER
+            </p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">WINO</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">NAPOJE</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">HERBATA/<br />KAWA</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">JEDZENIE</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">PIWO</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">ZIMOWE NAPOJE</p>
+          </div>
         </div>
+
+        <div class="table">
+          <div class="bill-open">
+            <div class="bill-open__header">
+              <h3>RACHUNEK OTWARTY</h3>
+            </div>
+
+            <div class="bill-open__body">
+              <!-- <div class="bill-open__table-number">
+                <p>stolik 1</p>
+              </div>
+              <div class="bill-open__table-number">
+                <p>stolik 2</p>
+              </div>
+              <div class="bill-open__table-number">
+                <p>stolik 3</p>
+              </div>
+              <div class="bill-open__table-number">
+                <p>stolik 4</p>
+              </div>
+              <div class="bill-open__table-number">
+                <p>stolik 5</p>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="bill-closed">
+            <div class="bill-closed__header">
+              <h3>RACHONEK ZAMKNIETY</h3>
+            </div>
+            <div class="bill-closed__body">
+              <div class="bill-closed__table-number">
+                <p>stolik 1</p>
+              </div>
+              <div class="bill-closed__table-number">
+                <p>stolik 2</p>
+              </div>
+              <div class="bill-closed__table-number">
+                <p>stolik 3</p>
+              </div>
+              <div class="bill-closed__table-number">
+                <p>stolik 4</p>
+              </div>
+              <div class="bill-closed__table-number">
+                <p>stolik 5</p>
+              </div>
+              <div class="bill-closed__table-number">
+                <p>stolik 6</p>
+              </div>
+              <div class="bill-closed__table-number">
+                <p>stolik 7</p>
+              </div>
+              <div class="bill-closed__table-number">
+                <p>stolik 8</p>
+              </div>
+              <div class="bill-closed__table-number">
+                <p>stolik 9</p>
+              </div>
+              <div class="bill-closed__table-number">
+                <p>stolik 10</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </article>
 
-</body>
+    <div class="modal-window-overlay hidden">
+      <div class="modal-window modal-window-overlay__modal-window">
+        <div class="modal-window__container">
+          <!-- <div class="modal-window__meal meal--active">
+            <p class="modal-window__meal-caption">DRINKI</p>
+          </div>
+          <div class="modal-window__meal">
+            <p class="modal-window__meal-caption">DRINKI BEZALKO.</p>
+          </div>
+          <div class="modal-window__meal">
+            <p class="modal-window__meal-caption">SHOT</p>
+          </div>
+          <div class="modal-window__meal">
+            <p class="modal-window__meal-caption">AVANGARDA BUCKET</p>
+          </div>
+          <div class="modal-window__meal">
+            <p class="modal-window__meal-caption">ALKOCHOLE BUTELKA</p>
+          </div>
+          <div class="modal-window__meal">
+            <p class="modal-window__meal-caption">WHISKY</p>
+          </div>
+          <div class="modal-window__meal">
+            <p class="modal-window__meal-caption">RUM</p>
+          </div>
+          <div class="modal-window__meal">
+            <p class="modal-window__meal-caption">GIN</p>
+          </div>
+          <div class="modal-window__meal">
+            <p class="modal-window__meal-caption">TEQUILA</p>
+          </div>
+          <div class="modal-window__meal">
+            <p class="modal-window__meal-caption">
+              KONIAK/ <br />
+              LIKIER
+            </p>
+          </div>
+          <div class="modal-window__meal">
+            <p class="modal-window__meal-caption">WINO</p>
+          </div>
+          <div class="modal-window__meal">
+            <p class="modal-window__meal-caption">NAPOJE</p>
+          </div> -->
+        </div>
+        <div class="modal-window__footer">
+          <button class="modal-window__add-btn">dodaj</button>
+          <button class="modal-window__close-btn">anuluj</button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

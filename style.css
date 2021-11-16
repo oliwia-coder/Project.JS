@@ -7,41 +7,52 @@
 }
 
 html {
-    font-size: 60%;
+    font-size: 62.5%;
+    /* 1rem = 10px */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
     box-sizing: border-box;
 }
+
 .container {
     border: 2px solid black;
     display: flex;
     flex-direction: row;
     width: 100%;
+    border-right: 1px solid black;
     
 }
-.title{
+.bill{
+    width: 30%;
     display: flex;
     flex-direction: column;
+    border: 1px solid black;
+    justify-content: space-between;
+}
+.bill__header {
     width: 100%;
 }
     
-
-.title h1{
+.bill__title{
     color: white;
     text-align: center;
+    background-color:#522725;
+    border-bottom: 1px solid black;
 }
-.container_bill{
+
+.bill__bill-container{
     display: flex;
     flex-direction: column;
-    width: 30%;
-    justify-content: space-between;
-    border-right: 1px solid black;
+    width: 100%;
+    
+
+    
 
 }
 
-.container_bill h1{
+.bill__price{
     
     color:white;
     background-color:#522725;
@@ -51,12 +62,22 @@ body {
     justify-content: space-between;
 
 }
-.sum-bill{
+.bill__sum-caption{
+    color:white;
+    background-color:#522725;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.bill__sum{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     background-color:#522725;
    color: white;
+    width: 100%;
+    
 }
 
 .container_bill_sum{
@@ -64,25 +85,37 @@ body {
     flex-direction: column;
     
 }
-.add-click{
+.bill__buttons-area{
     display: flex;
     flex-direction: row;
+    width: 100%;
  
 }
-.container_food{
+.bill__button-open-bill{
+    width: 50%;
+    background-color: #0C4352;
+    color: white;
+}
+.bill__button-close-bill{
+    width: 50%;
+    background-color: #0E5C58;
+    color: white;
+}
+.food-container{
 
     display: flex;
     flex-direction: column;
-    width: 70%;  
+    width: 70%; 
+    color: white;
 }
-.container h2{
+.food-container__header-title{
     
     color:white;
     background-color:#13503A;
     text-align: center;
 
 }
-.container_food_menu{
+.menu{
     
     display: flex;
     flex-direction: row;
@@ -90,23 +123,28 @@ body {
 }
 
 
-.container_food_menu__meals {
+.menu__meal {
     margin: 8px;
     color:black;
     background-color: #EBE6B6;
-    height: 60px;
-    width: 60px;
+    height: 7rem;
+    width: 7rem;
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
     text-overflow: ellipsis;
+    padding: 5px;
+    
+  
    
 }
-.container_food_menu__meals h1 {
-    margin-left:15px;
+.menu__meal-caption {
     text-align: center;
-    padding-top: 40%;
     font-size: 8px;
+    width: 100%;
+    align-self: center;
+
+    
 }
 
 /* .container_food_menu__meals:hover {
@@ -116,45 +154,38 @@ body {
     } */
 
 .table{
-    border: 1px solid black;
+    border-top: 1px solid black;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;  
     
+}
+.bill-open{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid black;
 }
 .table-title{
     display: flex;
     flex-direction: row;
     text-align: center;
 }
-.title-table-open{
+.bill-open__header{
     background-color: #0c4352;
-    width: 50%;
+    width: 100%;
     color: white;
     border-right: 1px solid black;
-}
-.title-table-close{
-    background-color: #0E5C58 ;
-    width: 50%;
-    color: white;
-}
-.table-bill{
-    display: flex;
-    flex-direction: row;
-}
-.table_opened {
-    border-right: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.table_close{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
 
-.table-number{
+
+.bill-open__body{
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+}
+    
+.bill-open__table-number{
     margin: 8px;
     color:black;
     background-color: #EBE6B6;
@@ -163,27 +194,95 @@ body {
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
-    
-    
-}
-.table-number h1{
+    font-size: 6px;
+    padding: 18px;
     text-align: center;
-    padding: 30%;
-    font-size: 8px;
-
 }
-.button-open-bill{
- width: 50%;
- padding: 5px;
- background-color: #0C4352;
- color: white;
-font-size: 12px;
-
-}
-.button-close-bill{
+.bill-closed{
     width: 50%;
-    padding: 5px;
-    background-color: #0E5C58;
+    display: flex;
+    flex-direction: column;
+}
+
+.bill-closed__header{
+    background-color: #0E5C58 ;
+    width: 100%;
     color: white;
-    font-size: 12px;
+    text-align: center;
+}
+.bill-closed__body{
+    display: flex;
+    flex-direction: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.bill-closed__table-number{
+    margin: 8px;
+    color:black;
+    background-color: #EBE6B6;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 6px;
+    padding: 18px;
+    text-align: center;
+    
+}
+
+.modal-window-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.modal-window {
+    background-color: rgb(255,255,255);
+}
+
+.modal-window-overlay__modal-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-window__container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.modal-window__footer{
+    display: flex;
+    justify-content: end;
+    padding: 20px;
+    gap: 10px;
+}
+
+.modal-window__meal {
+    margin: 8px;
+    color:black;
+    background-color: #EBE6B6;
+    height: 8rem;
+    width: 8rem;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    text-overflow: ellipsis;
+    padding: 5px;
+    border: 4px solid transparent;
+}
+.modal-window__meal-caption {
+    text-align: center;
+    font-size: 8px;
+}
+
+.meal--active {
+    border: 4px solid blue;
+}
+
+.hidden {
+    display: none;
 }
