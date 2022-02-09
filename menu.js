@@ -4,11 +4,15 @@ const menuList = [
   // DRINKI
   [
     {
-      name: "Wódka Żóbrowka Biała + soft",
+      name: "Żóbrowka Biała + soft",
       price: 14,
     },
     {
-      name: "Wódka Finlandia/Smironff Black + soft",
+      name: "Finlandia + soft",
+      price: 18,
+    },
+    {
+      name: "Smironff Black + soft",
       price: 18,
     },
     {
@@ -96,11 +100,11 @@ const menuList = [
       price: 24,
     },
     {
-      name: "Bialy Rusek/ White Russian",
+      name: "Bialy Rusek",
       price: 20,
     },
     {
-      name: "Czarny Rusek/ Black Russian",
+      name: "Czarny Rusek",
       price: 19,
     },
     {
@@ -110,10 +114,6 @@ const menuList = [
     {
       name: "San Francisco",
       price: 22,
-    },
-    {
-      name: "Gin + tonik",
-      price: 19,
     },
     {
       name: "Apple John",
@@ -179,14 +179,7 @@ const menuList = [
       name: "Pinacolada",
       price: 22,
     },
-    {
-      name: "Sour Jagermeister",
-      price: 20,
-    },
-    {
-      name: "Sour Truskawkowy",
-      price: 23,
-    },
+    
   ],
   //    BEZ ALKO
   [
@@ -207,7 +200,7 @@ const menuList = [
   // shot
   [
     {
-      name: "Wódka Żubrówka biała",
+      name: "Żubrówka biała",
       price: 8,
     },
     {
@@ -215,7 +208,11 @@ const menuList = [
       price: 10,
     },
     {
-      name: "Finlandia / Smirnoff Black",
+      name: "Finlandia ",
+      price: 11,
+    },
+    {
+      name: " Smirnoff Black",
       price: 11,
     },
     {
@@ -223,11 +220,15 @@ const menuList = [
       price: 8,
     },
     {
-      name: "Żołądkowa gorzka z figą/miętą",
+      name: "Żołądkowa gorzka z figą",
       price: 8,
     },
     {
-      name: "Avangardówka autorska nalewka z pomarańczy",
+      name: "Żołądkowa gorzka z miętą",
+      price: 8,
+    },
+    {
+      name: "Avangardówka ",
       price: 6,
     },
     {
@@ -250,6 +251,9 @@ const menuList = [
       name: "Jagermeister",
       price: 12,
     },
+  ],
+  //AVANGARDA BUCKET
+  [
     {
       name: "Avangarda Bucket 1l",
       price: 55,
@@ -286,7 +290,23 @@ const menuList = [
       price: 170,
     },
     {
-      name: "Grants/ Ballantines/ Jameson/ Bushmills/ Tullamore Dew 0,7l",
+      name: "Grants 0,7l",
+      price: 190,
+    },
+    {
+      name: "Ballantines 0,7l",
+      price: 190,
+    },
+    {
+      name: "Jameson 0,7l",
+      price: 190,
+    },
+    {
+      name: "Bushmills 0,7l",
+      price: 190,
+    },
+    {
+      name: "Tullamore Dew 0,7l",
       price: 190,
     },
     {
@@ -341,11 +361,11 @@ const menuList = [
       price: 16,
     },
     {
-      name: "Talisker Single Malt Scotch Whisky 10y",
+      name: "Talisker Single Malt 10y",
       price: 28,
     },
     {
-      name: "Aberlour Speyside Single Malt Scotch Whisky 12Y",
+      name: "Aberlour Speyside Single Malt 12Y",
       price: 25,
     },
   ],
@@ -396,10 +416,6 @@ const menuList = [
       name: "Metaxa",
       price: 13,
     },
-    {
-      name: "Hardy",
-      price: 20,
-    },
   ],
 
   // LIKIER
@@ -428,7 +444,7 @@ const menuList = [
       price: 13,
     },
     {
-      name: "Wino Białe butelka (750 ml)",
+      name: "Wino Białe but. (750 ml)",
       price: 70,
     },
     {
@@ -436,7 +452,7 @@ const menuList = [
       price: 13,
     },
     {
-      name: " Wino Czerwone butelka (750 ml)",
+      name: " Wino Czerwone but. (750 ml)",
       price: 70,
     },
     {
@@ -455,9 +471,6 @@ const menuList = [
       name: "Sangria Karafka 0,5 l",
       price: 50,
     },
-  ],
-  //WINO GRZANE
-  [
     {
       name: "Grzaniec Galicyjski ",
       price: 13,
@@ -526,11 +539,11 @@ const menuList = [
       price: 8,
     },
     {
-      name: "Sok Cappy ,Juice 0,25 ml ",
+      name: "Sok Cappy  0,25 ml ",
       price: 8,
     },
     {
-      name: "Sok Cappy ,Juice 1 litr",
+      name: "Sok Cappy  1 litr",
       price: 16,
     },
     {
@@ -542,7 +555,11 @@ const menuList = [
       price: 10,
     },
     {
-      name: "Woda gazowana/niegazowana",
+      name: "Woda gazowana",
+      price: 19,
+    },
+    {
+      name: "Woda niegazowana",
       price: 19,
     },
   ],
@@ -598,7 +615,11 @@ const menuList = [
       price: 22,
     },
     {
-      name: "Pierogi ruskie z boczkiem lub bez",
+      name: "Pierogi ruskie ",
+      price: 22,
+    },
+    {
+      name: "Pierogi ruskie z boczkiem",
       price: 22,
     },
     {
@@ -614,15 +635,15 @@ const menuList = [
       price: 20,
     },
     {
-      name: "Pielmienie z domowym czerwonym barszczem",
+      name: "Pielmienie W barszczu",
       price: 18,
     },
     {
-      name: "Barszcz czerwony czysty",
+      name: "Barszcz czerwony",
       price: 7,
     },
     {
-      name: "Deska specjałó",
+      name: "Deska specjałów",
       price: 35,
     },
     {
@@ -649,24 +670,21 @@ const menuList = [
   // IDEALNE DO PIWA PRZEKASKI
   [
     {
-      name: "Krążk i cebulowe z dipem",
+      name: "Krążki cebulowe",
       price: 12,
     },
     {
-      name: "Chrupiące łódeczki ziemniaczane z dipem",
+      name: "Łódeczki ziemniaczane",
       price: 12,
     },
     {
-      name: "Krokiety ziemniaczane z dipem",
+      name: "Krokiety ziemniaczane",
       price: 14,
     },
     {
       name: "Dodatkowe sosy",
       price: 2,
     },
-  ],
-  //PRZEKĄSKI
-  [
     {
       name: "Nachosy + salsa",
       price: 10,
@@ -680,7 +698,155 @@ const menuList = [
       price: 7,
     },
   ],
-  //ROZGRZEWAJĄCE
+   //PIWO KRAN
+  [
+    {
+      name: " IPA kran",
+      price: 15,
+    },
+    {
+      name: "APA kran",
+      price: 15,
+    },
+    {
+      name: "Przenica kran",
+      price: 13,
+    },
+    {
+      name: "Lager kran ",
+      price: 11,
+    },
+    {
+      name: "Pale ale  kran",
+      price: 15,
+    },
+    {
+      name: "Sour kran",
+      price: 15,
+    },
+    {
+      name: "Pils kran",
+      price: 11,
+    },
+  ],
+  //PIWO BUTELKA
+  [ 
+    {
+      name: "Pils  but.",
+      price: 11,
+    },
+    {
+     name: "Lager but.",
+      price: 11,
+    },
+    {
+      name: "Butelka Lager",
+      price: 13,
+    },
+    {
+      name: "Przenica but.",
+      price: 13,
+    },
+    {
+      name: "Lager but.",
+      price: 14,
+    }, 
+    {
+      name: "Żytnie",
+      price: 14,
+    },
+    
+    {
+      name: " IPA but.",
+      price: 15,
+    },
+    {
+      name: " APA but.",
+      price: 15,
+    }, 
+    {
+      name: "Pale Ale but.",
+      price: 15,
+    },
+    {
+      name: "Sour but.",
+      price: 15,
+    },
+   
+    {
+      name: "Mango IPA",
+      price: 16,
+    },
+    {
+      name: "Imperial IPA",
+      price: 17,
+    },
+   
+    {
+      name: "Pan i Pani",
+      price: 17,
+    },
+     {
+      name: " IPA but.",
+      price: 17,
+    },
+    {
+      name: "Lindemans Kriek 0,33",
+      price: 17,
+    },
+    {
+      name: "Lindemans Kriek 0,7",
+      price: 20,
+    },
+    {
+      name: "Corona",
+      price: 16,
+    },
+    {
+      name: "Duzy kufel",
+      price: 16,
+    },
+    {
+      name: "Tyskie",
+      price: 9,
+    },{
+      name: "Specjal",
+      price: 9,
+    },
+    {
+      name: "Perła",
+      price: 9,
+    },
+  ],
+   //PIWO BEZALKOCHOLOWE
+   [
+    {
+      name: "IPA",
+      price: 12,
+    },
+    {
+      name: "1 na 100",
+      price: 12,
+    },
+    {
+      name: "Haineken",
+      price: 12,
+    },
+    {
+      name: "Bawaria ",
+      price: 9,
+    },
+    {
+      name: "Inne 0,33",
+      price: 9,
+    },
+    {
+      name: "Inne 0,5",
+      price: 12,
+    },
+    
+  ],
+  // ZIMOWE NAPOJE 
   [
     {
       name: "Grzane piwo",
@@ -702,9 +868,6 @@ const menuList = [
       name: "Grzane Wino Bezalkoholowy",
       price: 10,
     },
-  ],
-  //Rozgrzewajace Herbatki
-  [
     {
       name: "Herbata Z Rumem ",
       price: 17,
@@ -726,6 +889,10 @@ const menuList = [
       price: 16,
     },
     {
+      name: "Herbata Grog na rumie",
+      price: 16,
+    },
+    {
       name: "Herbata Grzaniec orientalny",
       price: 16,
     },
@@ -742,51 +909,6 @@ const menuList = [
       price: 14,
     },
   ],
-  //PIWO KRAN
-  [
-    {
-      name: "IPA",
-      price: 15,
-    },
-    {
-      name: "APA",
-      price: 15,
-    },
-    {
-      name: "Przenica",
-      price: 13,
-    },
-    {
-      name: "Lager",
-      price: 11,
-    },
-  ],
-  //PIWO BUTELKA
-  [
-    {
-      name: "Butelka IPA",
-      price: 15,
-    },
-    {
-      name: "Butelka APA",
-      price: 15,
-    },
-    {
-      name: "Butelka Przenica",
-      price: 13,
-    },
-    {
-      name: "Butelka Lager",
-      price: 11,
-    },
-    {
-      name: "Butelka Lager",
-      price: 14,
-    },
-    {
-      name: "Butelka IPA",
-      price: 17,
-    },
-  ],
+ 
 ];
 

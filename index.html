@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="style.css" />
     <script src="menu.js" defer></script>
     <script src="script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <article class="container">
@@ -15,10 +21,33 @@
         <div class="bill__header">
           <h1 class="bill__title">RACHUNEK</h1>
         </div>
+        <div class="bill__bill-list">
+          <!-- <div class="bill__list-product">
+            <p>pierogi ruskie</p>
+          <i class="fas fa-plus"></i> 2
+            <i class="fas fa-minus"></i>
+            <p>22 zł</p>
+            <i class="fas fa-times"></i>
+          </div>
+          <div class="bill__list-product">
+            <p>pierogi z miesem</p>
+            <i class="fas fa-plus"></i> 2
+            <i class="fas fa-minus"></i>
+            <p>22 zł</p>
+            <i class="fas fa-times"></i>
+          </div>
+          <div class="bill__list-product">
+            <p>cubalibre</p>
+            <i class="fas fa-plus"></i> 2
+            <i class="fas fa-minus"></i>
+            <p>19 zł</p>
+            <i class="fas fa-times"></i>
+          </div> -->
+        </div>
         <div class="bill__bill-container">
           <div class="bill__sum">
             <h4 class="bill__sum-caption">Razem</h4>
-            <p class="bill__price">30 zł</p>
+            <p class="bill__price">0 zł</p>
           </div>
           <div class="bill__buttons-area">
             <button class="bill__button-open-bill">otwarty rachunek</button>
@@ -61,10 +90,10 @@
             <p class="menu__meal-caption">TEQUILA</p>
           </div>
           <div class="menu__meal">
-            <p class="menu__meal-caption">
-              KONIAK/ <br />
-              LIKIER
-            </p>
+            <p class="menu__meal-caption">KONIAK</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">LIKIER</p>
           </div>
           <div class="menu__meal">
             <p class="menu__meal-caption">WINO</p>
@@ -73,13 +102,28 @@
             <p class="menu__meal-caption">NAPOJE</p>
           </div>
           <div class="menu__meal">
-            <p class="menu__meal-caption">HERBATA/<br />KAWA</p>
+            <p class="menu__meal-caption">KAWA</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">HERBATA</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">CZEKOLADA</p>
           </div>
           <div class="menu__meal">
             <p class="menu__meal-caption">JEDZENIE</p>
           </div>
           <div class="menu__meal">
-            <p class="menu__meal-caption">PIWO</p>
+            <p class="menu__meal-caption">PRZEKĄSKI</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">PIWO KRAN</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">PIWO BUTELKA</p>
+          </div>
+          <div class="menu__meal">
+            <p class="menu__meal-caption">PIWO BEZALKO</p>
           </div>
           <div class="menu__meal">
             <p class="menu__meal-caption">ZIMOWE NAPOJE</p>
@@ -113,10 +157,10 @@
 
           <div class="bill-closed">
             <div class="bill-closed__header">
-              <h3>RACHONEK ZAMKNIETY</h3>
+              <h3>RACHUNEK ZAMKNIETY</h3>
             </div>
             <div class="bill-closed__body">
-              <div class="bill-closed__table-number">
+              <!-- <div class="bill-closed__table-number">
                 <p>stolik 1</p>
               </div>
               <div class="bill-closed__table-number">
@@ -145,7 +189,7 @@
               </div>
               <div class="bill-closed__table-number">
                 <p>stolik 10</p>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -157,7 +201,14 @@
         <div class="modal-window__container">
           <!-- <div class="modal-window__meal meal--active">
             <p class="modal-window__meal-caption">DRINKI</p>
-          </div>
+            <p class="modal-window__meal-price">19.99zl</p>
+            <output class="modal-window__quantity">2</output>
+            <div class="modal-window__change-quantity">
+              <i class="fas fa-plus-square"></i>
+              <i class="fas fa-minus-square"></i>
+            </div>
+          </div> -->
+          <!--
           <div class="modal-window__meal">
             <p class="modal-window__meal-caption">DRINKI BEZALKO.</p>
           </div>
@@ -201,5 +252,16 @@
         </div>
       </div>
     </div>
+
+    <div class="modal-window-table-overlay hidden">
+      <div class="modal-window-table">
+        <i class="fas fa-times"></i>
+        <label for="table-name" class="modal-window-table__title">Nazwa stolika: </label>
+        <input type="text" name="table-name" id="table-name" class="modal-window-table__name">
+        <button class="modal-window-table__btn">dodaj</button>
+      </div>
+    </div>
+
+    <!-- <button class="click">click</button> -->
   </body>
 </html>
