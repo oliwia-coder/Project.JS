@@ -17,6 +17,9 @@ let productAr = [];
 
 for (let i = 0; i < productList.length; i++) {
   productList[i].addEventListener("click", () => {
+    if (findActiveTableEl()?.classList.contains("bill-closed__table-number")) {
+      return;
+    }
     overlay.classList.remove("hidden");
     createMenu(i);
   });
@@ -110,55 +113,6 @@ function addToBill() {
 
     if (checkIsInBill(products[i].children[0].textContent)) {
       console.log("is in bill");
-      const index = checkElement(products[i].children[0].textContent);
-      const divs = document.getElementsByClassName("bill__list-product");
-      divs[index].querySelector(".bill__product-quantity").textContent =
-        parseInt(
-          divs[index].querySelector(".bill__product-quantity").textContent
-        ) + parseInt(products[i].children[2].children[1].textContent);
-      console.log(
-        divs[index].querySelector(".bill__product-quantity").textContent
-      );
-      const price = document.querySelector(".bill__product-price");
-      price.textContent =
-        parseInt(products[i].children[1].textContent) *
-          parseInt(
-            divs[index].querySelector(".bill__product-quantity").textContent
-          ) +
-        "zł";
-      console.log("cena podstawowa to: " + products[i].children[1].textContent);
-
-      // parsetInt(products[i].children[1].textContent);
-    } else {
-      document.querySelector(".bill__bill-list").insertAdjacentHTML(
-        "afterbegin",
-        `<div class="bill__list-product">
-        <p class="bill__product-name">${products[i].children[0].textContent}</p>
-        <i class="fas fa-plus"></i> <span class="bill__product-quantity">${
-          products[i].children[2].children[1].textContent
-        }</span>
-        <i class="fas fa-minus"></i>
-        <p class="bill__product-price">${
-          parseInt(products[i].children[1].textContent) *
-          parseInt(products[i].children[2].children[1].textContent)
-        }zł</p>
-        <i class="fas fa-times"></i>
-      </div>`
-      );
-
-      document.querySelector(".fa-times").addEventListener("click", removeItem);
-      document
-        .querySelector(".fa-plus")
-        .addEventListener(
-          "click",
-          manageQuantity.bind(document.querySelector(".fa-plus"), "+")
-        );
-      document
-        .querySelector(".fa-minus")
-        .addEventListener(
-          "click",
-          manageQuantity.bind(document.querySelector(".fa-minus"), "-")
-        );
     }
 
     let index = indexInAr(products[i].children[0].textContent);
@@ -169,6 +123,8 @@ function addToBill() {
     }
   }
 
+  clearBill();
+  generateBill();
   calculatePrice();
 }
 
@@ -192,19 +148,28 @@ function generateBill() {
     );
   }
 
-  for (let i = 0; i < productAr.length; i++) {
-    document.querySelectorAll(".fa-times")[i].addEventListener(
-      "click",
-      removeItem
-    );
-    document.querySelectorAll(".fa-plus")[i].addEventListener(
-      "click",
-      manageQuantity.bind(document.querySelectorAll(".fa-plus")[i], "+")
-    );
-    document.querySelectorAll(".fa-minus")[i].addEventListener(
-      "click",
-      manageQuantity.bind(document.querySelector(".fa-minus")[i], "-")
-    );
+  if (!findActiveTableEl()?.classList.contains("bill-closed__table-number")) {
+    for (let i = 0; i < productAr.length; i++) {
+      
+      document
+        .querySelectorAll(".fa-times")
+        [i].addEventListener(
+          "click",
+          removeItem.bind(document.querySelectorAll(".fa-times")[i], true, true)
+        );
+      document
+        .querySelectorAll(".fa-plus")
+        [i].addEventListener(
+          "click",
+          manageQuantity.bind(document.querySelectorAll(".fa-plus")[i], "+")
+        );
+      document
+        .querySelectorAll(".fa-minus")
+        [i].addEventListener(
+          "click",
+          manageQuantity.bind(document.querySelectorAll(".fa-minus")[i], "-")
+        );
+    }
   }
 }
 
@@ -217,7 +182,11 @@ function calculatePrice() {
 }
 
 function indexInAr(productName) {
+  console.log(productAr.length);
   for (let i = 0; productAr.length > i; i++) {
+    console.log("productName = " + productName);
+    console.log(`productAr[${i}][0] = ` + productAr[i][0]);
+
     if (productAr[i][0] === productName) {
       return i;
     }
@@ -229,24 +198,32 @@ function addToAr(index, quantity) {
   productAr[index][2] = productAr[index][2] + quantity;
 }
 
-function clearBill() {
+function clearBill(deleteFromProdAr) {
   const xButtons = document.querySelectorAll(".bill__bill-list .fa-times");
   console.log(xButtons);
   for (let i = 0; i < xButtons.length; i++) {
-    removeItem.call(xButtons[i]);
+    removeItem.call(xButtons[i], deleteFromProdAr);
   }
 }
 
-function removeItem() {
+function removeItem(deleteFromProdAr, shouldMap) {
   this.closest(".bill__list-product").remove();
   let itemName = this.parentElement.firstElementChild.textContent;
 
-  productAr = productAr.filter(function (element) {
-    if (element[0] !== itemName) {
-      console.log(element[0]);
-      return element;
-    }
-  });
+  if (deleteFromProdAr) {
+    productAr = productAr.filter(function (element) {
+      if (element[0] !== itemName) {
+        console.log(element[0]);
+        return element;
+      }
+    });
+  }
+
+  if (shouldMap && findActiveTableEl()) {
+    mapProductArToTableAr(
+      tableAr[findActiveTableIndex(findActiveTableEl())].products
+    );
+  }
 
   calculatePrice();
 }
@@ -266,16 +243,23 @@ function manageQuantity(sign) {
       } else {
         el[2] = --el[2];
         if (el[2] === 0) {
-          removeItem.call(document.querySelector(".fa-times"));
-          console.log(el, 'to jest ten produkt')
+          console.log(productAr);
+          console.log(el[2]);
+
+          //TODO: zmien 0 na indeks el (znajdz ten indeks)
+          productAr.splice(indexInAr(el[0]), 1);
+
+          // removeItem.call(document.querySelector(".fa-times"));
         }
       }
-      console.log(el, el[2]);
+      // console.log(el, el[2]);
     }
   });
 
+  clearBill();
+  generateBill();
   calculatePrice();
-  updateInfo(this.parentElement, sign);
+  // updateInfo(this.parentElement, sign);
 }
 
 /**
@@ -335,6 +319,16 @@ function createMenu(index) {
 }
 
 function createTable() {
+  if (btnClicked === closedTab) {
+    if (productAr.length === 0 && findActiveTableEl() === null) {
+      alert("nie mozna dodac pustego, zamknietego rachunku");
+      return;
+    } else if (findActiveTableEl() !== null) {
+      alert("odznacz stolik i dodaj do nowego rachunku");
+      return;
+    }
+  }
+
   const tableName = document.querySelector("#table-name").value;
   let addArea;
   let elClass;
@@ -353,6 +347,22 @@ function createTable() {
 
   if (!(tableName === "") && !tableExists(tableName)) {
     const tableProductAr = [];
+
+    if (document.querySelector(".bill-open__table-number--active")) {
+      console.log("istnieje aktywny w otwartych");
+      manageTable.call(
+        document.querySelector(".bill-open__table-number--active"),
+        undefined,
+        true
+      );
+    } else if (document.querySelector(".bill-closed__table-number--active")) {
+      console.log("istnieje aktywny w zamknietych");
+      manageTable.call(
+        document.querySelector(".bill-closed__table-number--active"),
+        undefined,
+        true
+      );
+    }
 
     for (let i = 0; i < productAr.length; i++) {
       tableProductAr.push([productAr[i][0], productAr[i][1], productAr[i][2]]);
@@ -376,17 +386,20 @@ function createTable() {
     let currentTable = document.querySelectorAll(`.${elClass}`);
     currentTable = currentTable[currentTable.length - 1];
 
-    currentTable.addEventListener("click", findTableIndex.bind(currentTable));
     currentTable.addEventListener(
       "click",
-      manageTable.bind(currentTable, elClass)
+      mapTableArToProductAr.bind(currentTable)
+    );
+    currentTable.addEventListener(
+      "click",
+      manageTable.bind(currentTable, elClass, false)
     );
 
-    clearBill();
+    clearBill(true);
     const x = document.querySelectorAll(`.${elClass} .fa-times`);
 
-    // x[x.length-1].addEventListener('click', findTableIndex);
-    // x[x.length-1].addEventListener('click', deleteTable.bind(x[x.length-1], findTableIndex.bind(x[x.length-1]) ));
+    // x[x.length-1].addEventListener('click', mapTableArToProductAr);
+    // x[x.length-1].addEventListener('click', deleteTable.bind(x[x.length-1], mapTableArToProductAr.bind(x[x.length-1]) ));
     x[x.length - 1].addEventListener(
       "click",
       deleteTable.bind(x[x.length - 1])
@@ -396,13 +409,54 @@ function createTable() {
   }
 }
 
+//
+function mapProductArToTableAr(productsAr) {
+  console.log("tableAr.products = ", productsAr);
+  productsAr = [];
+  for (let i = 0; i < productAr.length; i++) {
+    productsAr.push([productAr[i][0], productAr[i][1], productAr[i][2]]);
+  }
+  tableAr[findActiveTableIndex(findActiveTableEl())].products = productsAr;
+  // console.log('zmieniona tablica: ', productsAr);
+  // console.log('zmieniona tablica: ', tableAr[findActiveTableIndex(findActiveTableEl())].products);
+}
+
 // zaznacza/odznacza stolik
-function manageTable(elClass, e) {
+function manageTable(elClass, invokedProgramatically, e) {
+  console.log("productAR", productAr);
   // console.log(this.classList[0]);
   const isActive =
     this.classList.contains("bill-closed__table-number--active") ||
     this.classList.contains("bill-open__table-number--active");
 
+  deactivateAllTables();
+  clearBill(true);
+  console.log("productAR", productAr);
+
+  if (invokedProgramatically) {
+    console.log("INVOKEDPROGRAMMATICALLY = TRUE");
+    return;
+  }
+  if (!(e.target === e.currentTarget)) {
+    return;
+  }
+  if (isActive) {
+    productAr = [];
+    calculatePrice();
+    return;
+  }
+
+  // this.classList.add(`${this.classList[0]}--active`);
+  this.classList.add(elClass + "--active");
+  tableAr[mapTableArToProductAr.call(this)].products;
+
+  console.log("productAR", productAr);
+  generateBill();
+  calculatePrice();
+  console.log("productAR", productAr);
+}
+
+function deactivateAllTables() {
   for (const table of document.querySelectorAll(
     ".bill-closed__table-number--active"
   )) {
@@ -415,34 +469,41 @@ function manageTable(elClass, e) {
     console.log(table);
     table.classList.remove("bill-open__table-number--active");
   }
-  clearBill();
-
-  if (!(e.target === e.currentTarget)) {
-    return;
-  }
-  if (isActive) {
-    return;
-  }
-  else {
-    calculatePrice();
-  }
-
-
-  // this.classList.add(`${this.classList[0]}--active`);
-  this.classList.add(elClass + "--active");
-
-  generateBill();
 }
 
-function findTableIndex() {
+//zwroc aktywny element, jesli takiego nie ma, zwroc null
+function findActiveTableEl() {
+  return (
+    document.querySelector(".bill-open__table-number--active") ||
+    document.querySelector(".bill-closed__table-number--active")
+  );
+}
+
+//zwraca index aktywnego stolika w tableAr, jesli takiego nie ma - zwroc -1
+function findActiveTableIndex(activeEl) {
+  if (activeEl === null) {
+    return -1;
+  }
+  let elName = activeEl.firstElementChild.textContent;
+  for (let i = 0; tableAr.length > i; i++) {
+    console.log(tableAr[i].tableName);
+    if (tableAr[i].tableName === elName) {
+      console.log("znalazlem element, ma index:" + i);
+      return i;
+    }
+  }
+}
+
+function mapTableArToProductAr() {
   console.log(this, "haaaalo");
+  console.log(productAr);
 
   for (let i = 0; i < tableAr.length; i++) {
     if (tableAr[i].tableName === this.firstElementChild.textContent) {
       console.log(this.firstElementChild.textContent);
-      console.log(i);
       productAr = tableAr[i].products;
-      break;
+      console.log(`zworocony inex to ${i}`);
+      return i;
     }
   }
 }
@@ -456,7 +517,8 @@ function deleteTable() {
       break;
     }
   }
-
+  console.log(tableAr);
+  console.log(productAr);
   console.log(i);
   tableAr[i] = undefined;
   tableAr = tableAr.filter((table) => {
@@ -465,6 +527,8 @@ function deleteTable() {
     }
     return true;
   });
+  console.log(productAr);
+  console.log(tableAr);
   console.log(this);
   console.log(this.parentElement);
   this.parentElement.remove();
@@ -501,33 +565,3 @@ function openTableModal() {
   btnClicked = this;
   modalWindowTable.classList.remove("hidden");
 }
-
-// let ar = [1,2,3,4,5,6,7,8,9];
-
-// ar.forEach(function(el) {
-//   console.log(el * 2);
-// });
-
-// console.log(
-//   ar.filter(function(el) {
-//   if(el === 5) return false;
-//   else {
-//     return true;
-//   }
-// }));
-
-// const btn2 = document.querySelector('.click');
-// btn2.addEventListener('click', jakasFunckja.bind(this, 1, 2));
-
-// function jakasFunckja(a, b, event) {
-//   console.log(a);
-//   console.log(b);
-//   console.log(event);
-// }
-
-
-//TODO:
-
-//1.trzeba zrobic calculatePrice()
-//przy tworzeniu stolika/przechodzeniu do innych stolikow
-//2.zablokowac mozliwosc dodawania pustego, zamknietego rachunku
