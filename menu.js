@@ -1,7 +1,7 @@
 "use strict";
 
 const menuList = [
-  // DRINKI
+  // ALKO + SOFT
   [
     {
       name: "Żóbrowka Biała + soft",
@@ -26,26 +26,15 @@ const menuList = [
     {
       name: "Rum + Coca-Cola",
       price: 19,
-    },
+    },    
+  ],
+
+  // DRINKI
+  [
+    
     {
       name: "JagerBomba",
       price: 22,
-    },
-    {
-      name: "Sour Wódka",
-      price: 16,
-    },
-    {
-      name: "Sour Whisky",
-      price: 21,
-    },
-    {
-      name: "Sour Jagermeister",
-      price: 20,
-    },
-    {
-      name: "Sour Truskawkowy",
-      price: 23,
     },
     {
       name: "Mojito",
@@ -128,7 +117,7 @@ const menuList = [
       price: 28,
     },
     {
-      name: "Jack Daniels Lychburg Lemonade",
+      name: "J.D Lychburg Lemonade",
       price: 26,
     },
     {
@@ -148,7 +137,7 @@ const menuList = [
       price: 22,
     },
     {
-      name: "Martini & Tonic/Sprite",
+      name: "Martini & Tonic/ Sprite",
       price: 18,
     },
     {
@@ -164,7 +153,7 @@ const menuList = [
       price: 20,
     },
     {
-      name: "Campari Tonic/Soda",
+      name: "Campari Tonic/ Soda",
       price: 20,
     },
     {
@@ -180,6 +169,26 @@ const menuList = [
       price: 22,
     },
     
+  ],
+   // Sour
+   [
+    
+    {
+      name: "Sour Wódka",
+      price: 16,
+    },
+    {
+      name: "Sour Whisky",
+      price: 21,
+    },
+    {
+      name: "Sour Jagermeister",
+      price: 20,
+    },
+    {
+      name: "Sour Truskawkowy",
+      price: 23,
+    },
   ],
   //    BEZ ALKO
   [

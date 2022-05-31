@@ -15,6 +15,9 @@ let tableAr = [];
 let btnClicked;
 let productAr = [];
 
+
+
+
 for (let i = 0; i < productList.length; i++) {
   productList[i].addEventListener("click", () => {
     if (findActiveTableEl()?.classList.contains("bill-closed__table-number")) {
@@ -58,7 +61,9 @@ function createMenuItem(outerArIndex, innerArIndex) {
   plusIcon.classList.add("fa-plus-square", "far");
   const minusIcon = document.createElement("i");
   minusIcon.classList.add("fa-minus-square", "far");
-
+  
+  // output.textContent = 0;
+  
   plusIcon.addEventListener("click", () => {
     if (output.textContent === "") {
       output.textContent = "1";

@@ -10,10 +10,13 @@ html {
     font-size: 62.5%;
     /* 1rem = 10px */
     font-family: arial,sans-serif;
+   /* overflow: hidden; */
+
 }
 
 body {
     box-sizing: border-box;
+    height: 100%;
 }
 
 .container {
@@ -21,7 +24,9 @@ body {
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 100%;
     border-right: 1px solid black;
+    
     
 }
 .bill{
@@ -29,7 +34,7 @@ body {
     width: 30%;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border-right: 2px solid black;
     justify-content: space-between;
    
 }
@@ -42,23 +47,35 @@ body {
     color: white;
     text-align: center;
     background-color:#522725;
-    border-bottom: 1px solid black;
-    font-size: 15px;
+    font-size:  25px;
+    padding: 5px;
 }
 .bill__bill-list{
     width: 100%;
-  
+    overflow-wrap: break-word;
+    /* overflow-y: scroll; */
     
+}
+.bill__product-price {
+    height: 100%;
+    padding-top: 8px;
+    display: flex;
+
+    align-items: center
+
 }
 .bill__list-product{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #E5E5E5 ;
-    margin-top: 1px;
-    padding: 1px;
-    padding-top: 10px;
+    margin-top: 2px;
+    padding: 5px; 
+    padding-top: 5px; 
     border: 1px solid black;
+    font-size: 16px;
+  
 }
 .bill__bill-container{
     display: flex;
@@ -74,7 +91,11 @@ body {
     margin-right: 5px;
 }
 .bill__product-name{
-    width: 50%;
+    width: 60%;
+    height: 100%;
+    padding-top: 8px;
+   
+
 }
 
 
@@ -92,7 +113,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 13px;
+    font-size: 20px;
     align-items:center;
     padding: 5px;
    
@@ -105,7 +126,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-   font-size: 14px;
+   font-size: 20px;
    align-items:center;
     padding: 5px;
 
@@ -132,17 +153,30 @@ body {
     display: flex;
     flex-direction: row;
     width: 100%;
+
  
 }
 .bill__button-open-bill{
     width: 50%;
     background-color: #0C4352;
     color: white;
+    font-size: 20px;
+    padding: 4px;
+    text-align: center;
+    margin-right: 4px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
 }
 .bill__button-close-bill{
     width: 50%;
     background-color: #0E5C58;
     color: white;
+    font-size: 20px;
+    padding:5px;
+    text-align: center;
+    margin-right: 2px;
+
 }
 .food-container{
     padding: 3px;
@@ -156,7 +190,8 @@ body {
     color:white;
     background-color:#13503A;
     text-align: center;
-    font-size: 16px;
+    font-size: 25px;
+    padding: 5px;
 
 }
 .menu{
@@ -171,8 +206,8 @@ body {
     margin: 8px;
     color:black;
     background-color: #EBE6B6;
-    height: 8rem;
-    width: 8rem;
+    height: 11rem;
+    width: 11rem;
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
@@ -181,8 +216,8 @@ body {
 }
 .menu__meal-caption {
     text-align: center;
-    font-size: 11px;
-    font-weight: bolder;
+    font-size: 16px;
+    font-weight: bold;
     width: 100%;
     align-self: center;
 
@@ -193,6 +228,7 @@ body {
         color: rgba(128, 128, 128, 0.712);
         background-color: var(--primary-color);
         box-shadow: 2px 2px 10px 0 rgba(0,0,0,0.4);
+        
     } */
 
 .table{
@@ -226,13 +262,17 @@ body {
     text-align: center;
 }
 .bill-open__header{
-    background-color: #0c4352;
-  
+    background-color: #0E5C58;
     width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding: 3px;
+    /* width: 100%;
     color: white;
     border-right: 1px solid black;
     text-align: center;
-    font-size: 11px;
+    font-size: 11px; */
 }
 
 
@@ -266,11 +306,14 @@ body {
 
 .bill-closed__header{
  
-    background-color: #0E5C58 ;
+    background-color:  #0c4352 ;
     width: 100%;
+    height: 100%;
     color: white;
     text-align: center;
-    font-size: 11px;
+    font-size: 20px;
+    padding: 3px;
+    padding-left: 2rem;
 }
 .bill-closed__body{
     display: flex;
@@ -309,23 +352,42 @@ body {
     height: 100%;
     position: fixed;
     top: 0;
+    
 }
 
 .modal-window-table {
-    padding: 5rem;
+    padding: 10px;
     background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+}
+.modal-window-table__btn{
+    padding: 5px;
+    font-size: 18px;
+    margin: 10px;
+}
+.modal-window-table__name{
+    height: 30px;
+    margin: 10px;
+}
+.modal-window-table__title{
+    margin: 10px;
+    
 }
 
+    
 .modal-window-overlay {
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
+    overflow: scroll;
 }
 
 .modal-window {
@@ -334,9 +396,10 @@ body {
 
 .modal-window-overlay__modal-window {
     position: absolute;
-    top: 10%;
-    left: 5%;
-    transform: translate(-5%, -10%);
+    top: 11%;
+    left: 16%;
+    transform: translate(-11%, -9%);
+    width: 90%;
 }
 
 .modal-window__container {
@@ -353,10 +416,11 @@ body {
 .modal-window__meal {
     
     margin: 5px;
+  
     color:black;
     background-color: #EBE6B6;
-    height: 9rem;
-    width: 9rem;
+    height: 13rem;
+    width: 13rem;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -365,12 +429,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     text-overflow: ellipsis;
-    padding: 1px;
-    font-size: 12px;
+    padding: 2px;
+    font-size: 16px;
+    font-weight: bold;
 }
 .modal-window__meal-price{
-    font-size: 12px;
-    font-weight: bolder;
+    font-size: 16px;
+    font-weight: lighter;
 }
 .modal-window__meal-caption {
     text-align: center;
@@ -387,17 +452,215 @@ body {
 }
 
 .fa-minus-square {
-    font-size: 2rem;
-    margin-right: 5px;
+    font-size: 3rem;
+    margin-right: 8px;
 }
 
 .fa-plus-square {
-    font-size: 2rem;
-    margin-left: 5px;
+    font-size: 3rem;
+    margin-left: 8px;
    
 }
 .modal-window__quantity{
-    font-size: 1.5rem;
+    font-size: 2rem;
     
    
+}
+.modal-window__add-btn{
+    font-size: 18px;
+    padding: 10px;
+    background-color:rgb(208, 208, 208);
+    border-radius: 10%;
+}
+.modal-window__close-btn{
+    font-size: 18px;
+    padding: 10px;
+    background-color:rgb(208, 208, 208);
+    border-radius: 10%;
+
+}
+
+@media screen and (max-width:1091px){
+
+    .fa-minus-square {
+        font-size: 2.5rem;
+        margin-right: 9px;
+    }
+    
+    .fa-plus-square {
+        font-size: 2.5rem;
+        margin-left: 9px;
+       
+    }
+    .menu__meal {
+       
+        height: 10rem;
+        width: 10rem; 
+    }
+    .menu__meal-caption {
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .bill__title {
+        font-size: 23px;
+      }
+      .food-container__header-title {
+        font-size: 23px;
+      }
+      .bill-open__header {
+        font-size: 18px;
+      }
+      .bill-closed__header {
+        font-size: 18px;
+      }
+      .bill__button-open-bill {
+        font-size: 18px;
+
+}
+    .bill__button-close-bill{
+        font-size: 18px;
+        
+    }
+}
+@media screen and (max-width:1091px){
+    .modal-window__meal {
+    
+       
+        height: 11rem;
+        width: 11rem;
+        font-size: 14px;
+    }
+    .menu__meal {
+       
+        height: 9rem;
+        width: 9rem;
+        display: flex;
+        flex-wrap: wrap;
+       
+    }
+    .menu__meal-caption {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .bill__title {
+        font-size: 20px;
+      }
+      .food-container__header-title {
+        font-size: 20px;
+      }
+      .bill-open__header {
+        font-size: 16px;
+      }
+      .bill-closed__header {
+        font-size: 16px;
+      }
+      .bill__button-open-bill {
+        font-size: 16px;
+}
+    .bill__button-close-bill{
+        font-size: 16px;
+        
+    }
+    .bill__sum-caption {
+        font-size: 16px;
+    }
+    .bill__price {
+        font-size: 16px;
+    }.bill__list-product {
+        font-size: 14px;
+      }
+      .modal-window-table {
+        top: 30%;
+        left: 50%;
+        transform: translate(-30%, -30%);
+       
+      }
+      .modal-window-overlay__modal-window {
+        position: absolute;
+        top: 10%;
+        left: 19%;
+        transform: translate(-15%, -10%);
+       
+        
+
+      }
+      @media screen and (max-width:610px){
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        .bill {
+            padding: 3px;
+            width: 100%;
+        }
+        .food-container {
+            padding: 3px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            color: white;
+          }
+        .menu__meal {
+           
+            height: 8rem;
+            width: 8rem;
+            display: flex;
+            flex-wrap: wrap;
+           
+        }
+        .menu__meal-caption {
+            font-size: 11px;
+        }
+        .bill__title {
+            font-size: 20px;
+          }
+          .food-container__header-title {
+            font-size: 20px;
+          }
+          .bill-open__header {
+            font-size: 14px;
+          }
+          .bill-closed__header {
+            font-size: 14px;
+          }
+          .bill__button-open-bill {
+            font-size: 16px;
+        }
+        .bill__button-close-bill{
+            font-size: 16px;
+            
+        }
+        .modal-window__add-btn{
+            font-size: 16px;
+            padding: 9px;
+            border-radius: 10%;
+        }
+        .modal-window__close-btn{
+            font-size: 16px;
+            padding: 9px;
+            border-radius: 10%;
+        
+        }
+        .modal-window-table {  
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+        }
+        .modal-window-table__btn{
+            padding: 4px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .modal-window-table__name{
+            height: 30px;
+            margin: 10px;
+        }
+        .modal-window-table__title{
+            margin: 10px;
+            margin-top: 2rem;
+            
+        }
+    }
+
 }
