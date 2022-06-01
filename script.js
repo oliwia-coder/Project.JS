@@ -62,7 +62,7 @@ function createMenuItem(outerArIndex, innerArIndex) {
   const minusIcon = document.createElement("i");
   minusIcon.classList.add("fa-minus-square", "far");
   
-  // output.textContent = 0;
+  output.textContent = '0';
   
   plusIcon.addEventListener("click", () => {
     if (output.textContent === "") {
@@ -74,8 +74,8 @@ function createMenuItem(outerArIndex, innerArIndex) {
 
   minusIcon.addEventListener("click", () => {
     if (output.textContent === "1") {
-      output.textContent = "";
-    } else if (output.textContent === "") {
+      output.textContent = "0";
+    } else if (output.textContent === "0") {
     } else {
       output.textContent = parseInt(output.textContent) - 1;
     }
@@ -99,7 +99,7 @@ function addToBill() {
   const products = document.querySelectorAll(".modal-window__meal");
 
   for (let i = 0; products.length > i; i++) {
-    if (products[i].children[2].children[1].textContent === "") {
+    if (products[i].children[2].children[1].textContent === "0") {
       continue;
     }
     const ar = [];
@@ -248,7 +248,7 @@ function manageQuantity(sign) {
       } else {
         el[2] = --el[2];
         if (el[2] === 0) {
-          console.log(productAr);
+          // console.log(productAr, 'TUU');
           console.log(el[2]);
 
           //TODO: zmien 0 na indeks el (znajdz ten indeks)
@@ -324,6 +324,7 @@ function createMenu(index) {
 }
 
 function createTable() {
+  console.log('TUUUUUUUUUUUuu');
   if (btnClicked === closedTab) {
     if (productAr.length === 0 && findActiveTableEl() === null) {
       alert("nie mozna dodac pustego, zamknietego rachunku");
