@@ -894,7 +894,7 @@ const menuList = [
       price: 20,
     },
     {
-      name: "Herbata Grog na wódce / na rumie",
+      name: "Herbata Grog na wódce",
       price: 16,
     },
     {
@@ -902,7 +902,7 @@ const menuList = [
       price: 16,
     },
     {
-      name: "Herbata Grzaniec orientalny",
+      name: "Herbata orientalna",
       price: 16,
     },
     {
