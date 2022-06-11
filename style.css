@@ -676,6 +676,14 @@ body {
             margin-top: 2rem;
             
         }
+          .modal-window-overlay__modal-window {
+            position: absolute;
+            top: 25%;
+            left: 19%;
+            transform: translate(-15%, -10%);
+                   
+    
+          }
     }
 
 }
